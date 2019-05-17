@@ -5,7 +5,6 @@ import be.maximvdw.placeholderapi.internal.CustomPlaceholdersPack;
 import be.maximvdw.placeholderapi.internal.PlaceholderPack;
 import be.maximvdw.placeholderapi.internal.PlaceholderPlugin;
 import be.maximvdw.placeholderapi.internal.ui.SendConsole;
-import be.maximvdw.placeholderapi.internal.updater.MVdWUpdaterHook;
 import be.maximvdw.placeholderapi.internal.utils.DateUtils;
 import be.maximvdw.placeholderapi.internal.utils.NumberUtils;
 import be.maximvdw.placeholderapi.internal.utils.bukkit.BukkitUtils;
@@ -48,12 +47,6 @@ public class PlaceholderAPI extends JavaPlugin {
         new NumberUtils();
 
         int resource = 11182;
-        try {
-            if (Bukkit.getPluginManager().isPluginEnabled("MVdWUpdater"))
-                new MVdWUpdaterHook(this, resource);
-        } catch (Throwable ex) {
-            // No updater
-        }
 
         SendConsole.info("Sending metrics ...");
         try {
