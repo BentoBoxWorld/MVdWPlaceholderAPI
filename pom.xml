@@ -12,10 +12,6 @@
 			<name>Public Repositories</name>
 			<url>http://repo.mvdw-software.be/content/groups/public/</url>
 		</repository>
-		<repository>
-			<id>bstats-repo</id>
-			<url>http://repo.bstats.org/content/repositories/releases/</url>
-		</repository>
         <repository>
             <id>prouser123-public</id>
             <url>https://repo.prouser123.me/repository/maven-public/</url>
@@ -26,12 +22,6 @@
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
 			<version>1.10-R0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.bstats</groupId>
-			<artifactId>bstats-bukkit</artifactId>
-			<version>1.2</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 	<build>

@@ -1,5 +1,12 @@
 package be.maximvdw.placeholderapi;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bukkit.OfflinePlayer;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
+
 import be.maximvdw.placeholderapi.events.PlaceholderAddedEvent;
 import be.maximvdw.placeholderapi.internal.CustomPlaceholdersPack;
 import be.maximvdw.placeholderapi.internal.PlaceholderPack;
@@ -9,14 +16,6 @@ import be.maximvdw.placeholderapi.internal.utils.DateUtils;
 import be.maximvdw.placeholderapi.internal.utils.NumberUtils;
 import be.maximvdw.placeholderapi.internal.utils.bukkit.BukkitUtils;
 import be.maximvdw.placeholderapi.internal.utils.chat.ColorUtils;
-import org.bstats.bukkit.Metrics;
-import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * MVdWPlaceholderAPI
@@ -30,8 +29,6 @@ public class PlaceholderAPI extends JavaPlugin {
     private static PlaceholderPack customPlaceholders = null;
     /* Placeholder change listeners */
     private static List<PlaceholderAddedEvent> placeholderAddedHandlers = new ArrayList<PlaceholderAddedEvent>();
-    /* Metrics (global for future custom stats) */
-    private static Metrics metrics = null;
 
     @Override
     public void onEnable() {
@@ -46,14 +43,6 @@ public class PlaceholderAPI extends JavaPlugin {
         new DateUtils();
         new NumberUtils();
 
-        int resource = 11182;
-
-        SendConsole.info("Sending metrics ...");
-        try {
-            metrics = new Metrics(this);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
     }
 
     @Override
@@ -141,7 +130,7 @@ public class PlaceholderAPI extends JavaPlugin {
                         replacer) {
                     @Override
                     public String getResult(String placeholder,
-                                            OfflinePlayer player) {
+                            OfflinePlayer player) {
                         PlaceholderReplacer replacer = (PlaceholderReplacer) getArguments()[0];
                         PlaceholderReplaceEvent event = new PlaceholderReplaceEvent(
                                 player, placeholder);
@@ -184,7 +173,7 @@ public class PlaceholderAPI extends JavaPlugin {
                         replacer) {
                     @Override
                     public String getResult(String placeholder,
-                                            OfflinePlayer player) {
+                            OfflinePlayer player) {
                         PlaceholderReplacer replacer = (PlaceholderReplacer) getArguments()[0];
                         PlaceholderReplaceEvent event = new PlaceholderReplaceEvent(
                                 player, placeholder);
